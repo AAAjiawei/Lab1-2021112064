@@ -140,13 +140,14 @@ def output_traversal_result(file_path, nodes, edges):
 # 主函数
 def main():
     # 从用户输入或命令行参数获取文件路径和文件名
-    # file_path = input("请输入文本文件的路径和文件名：")
+    file_path = input("请输入文本文件的路径和文件名：")
 
-    file_path = "text_data.txt"  # 你的文本文件路径
+    # file_path = "text_data.txt"  # 你的文本文件路径
     # 检查文件路径是否存在
-    if not os.path.isfile(file_path):
+    while not os.path.isfile(file_path):
         print("文件路径不存在，请重新输入。")
-        return
+        file_path = input("请输入文本文件的路径和文件名：")
+        
     
     
     # 创建有向图
@@ -175,12 +176,12 @@ def main():
                 continue
             # 查找桥接词
             result = find_bridge_words(graph, word1, word2)
-            print(result)
+            # print(result)
             
         elif choice == '2':
             # 输入新文本
-            # new_text = input("请输入一行新文本：")
-            new_text = "sek new seek new"  # 你的新文本
+            new_text = input("请输入一行新文本：")
+            # new_text = "sek new seek new"  # 你的新文本
             
             # 处理新文本并插入桥接词
             processed_text = process_text_with_bridge_words(graph, new_text)
