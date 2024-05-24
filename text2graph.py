@@ -24,7 +24,7 @@ def create_digraph_from_file(file_path):
 
 # 可视化有向图
 def visualize_digraph(G):
-    pos = nx.spring_layout(G)
+    pos = nx.random_layout(G)
     edge_labels = {(source, target): G[source][target]['weight'] for source, target in G.edges()}
     nx.draw(G, pos, with_labels=True, arrows=True)
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
