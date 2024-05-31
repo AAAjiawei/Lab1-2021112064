@@ -1,2 +1,2 @@
-遍历节点: civilizations
-遍历边: 
+遍历节点: where we need hope to find it harder
+遍历边: ('where', 'we') ('we', 'need') ('need', 'hope') ('hope', 'to') ('to', 'find') ('find', 'it') ('it', 'harder')

@@ -24,7 +24,7 @@ def create_digraph_from_file(file_path):
 
 # 可视化有向图
 def visualize_digraph(G):
-    pos = nx.random_layout(G)
+    pos = nx.kamada_kawai_layout(G)
     edge_labels = {(source, target): G[source][target]['weight'] for source, target in G.edges()}
     nx.draw(G, pos, with_labels=True, arrows=True)
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
@@ -94,7 +94,7 @@ def find_shortest_paths_to_other_words(graph, word):
     
     shortest_paths = {}
     for target_word in graph.nodes:
-        print(target_word)
+        # print(target_word)
         if target_word != word:
             try:
                 shortest_path = nx.shortest_path(graph, source=word, target=target_word, weight='weight')
@@ -157,8 +157,9 @@ def main():
     # 可视化有向图
     visualize_digraph(graph)
 
-    print("请输入工程代号以选择功能：\n1. 查找桥接词\n2. 处理新文本并插入桥接词\n3. 查找最短路径\n4. 随机遍历图\n5. 退出系统")
+    # print("请输入工程代号以选择功能：\n1. 查找桥接词\n2. 处理新文本并插入桥接词\n3. 查找最短路径\n4. 随机遍历图\n5. 退出系统")
     while True:
+        print("\n请输入工程代号以选择功能：\n1. 查找桥接词\n2. 处理新文本并插入桥接词\n3. 查找最短路径\n4. 随机遍历图\n5. 退出系统")
         choice = input("\n请输入选项：")
         choice_list = ['1', '2', '3', '4', '5']
         
