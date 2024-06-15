@@ -14,15 +14,6 @@ def file_path(tmp_path):
 def sample_graph(file_path):
     return create_digraph_from_file(file_path)
 
-# def test_read_and_process_file(tmp_path):
-#     d = tmp_path / "sub"
-#     d.mkdir()
-#     file_path = d / "testfile.txt"
-#     file_path.write_text("Hello, world! This is a test.\nHello again.")
-    
-#     words = read_and_process_file(file_path)
-#     assert words == ["Hello", "world", "This", "is", "a", "test", "Hello", "again"]
-
 def test_create_directed_graph(file_path):
     graph = create_digraph_from_file(file_path)
     assert graph.has_edge("Hello", "world")
@@ -45,6 +36,7 @@ def test_find_shortest_path(sample_graph):
     # assert find_shortest_path(sample_graph, "Hello", "not_in_graph") == "No word1 or word2 in the graph!"
     # assert find_shortest_path(sample_graph, "not_in_graph", "Hello") == "No word1 or word2 in the graph!"
     assert find_shortest_path(sample_graph, "a", "Hello") == None
+    # assert find_shortest_path(sample_graph, "Hello", "") == {'world': ['Hello', 'world'], 'This': ['Hello', 'world', 'This'], 'is': ['Hello', 'world', 'This', 'is'], 'a': ['Hello', 'world', 'This', 'is', 'a'], 'test': ['Hello', 'world', 'This', 'is', 'a', 'test'], 'again': ['Hello', 'again']}
 
 def test_random_traversal(sample_graph):
     nodes, edges = random_traversal(sample_graph)

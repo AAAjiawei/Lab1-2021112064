@@ -69,8 +69,8 @@ def process_text_with_bridge_words(graph, text):
         word1, word2 = words[i], words[i + 1]
         new_text.append(word1)
         bridge_words = find_bridge_words(graph, word1, word2)
-        if type(bridge_words) == str:
-            bridge_words = []
+        # if type(bridge_words) == str:
+        #     bridge_words = []
         # print(bridge_words)
         if bridge_words:
             random_bridge_word = random.choice(bridge_words)
@@ -101,6 +101,7 @@ def find_shortest_paths_to_other_words(graph, word):
                 shortest_paths[target_word] = shortest_path
             except nx.NetworkXNoPath:
                 shortest_paths[target_word] = "无法找到从 {} 到 {} 的路径".format(word, target_word)
+        print(shortest_paths)
     return shortest_paths
 
 
@@ -176,7 +177,7 @@ def main():
                 print("单词 {} 或 {} 不在图中，请重新操作。".format(word1, word2))
                 continue
             # 查找桥接词
-            result = find_bridge_words(graph, word1, word2)
+            # result = find_bridge_words(graph, word1, word2)
             # print(result)
             
         elif choice == '2':
